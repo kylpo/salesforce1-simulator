@@ -4,36 +4,24 @@ var popups = {};
 
 chrome.browserAction.onClicked.addListener(function () {
     chrome.windows.getCurrent(null, function (window) {
-//        console.log(window);
-
-//        if (window.state === "maximized") {
-//            var options = {
-//                state: "normal",
-//                width: window.width - POPOUT_WIDTH,
-//                drawAttention: true
-//            };
-
-            chrome.windows.update(window.id, {width: window.width - POPOUT_WIDTH}, launchPopup)
-//        } else {
-//            launchPopup();
-//        }
-
         function launchPopup() {
             chrome.windows.create({
                 url: 'https://login.salesforce.com/one/one.app',
                 type: "popup",
                 width: POPOUT_WIDTH,
                 height: POPOUT_HEIGHT,
-                left: window.width - POPOUT_WIDTH
+                left: window.left + window.width - POPOUT_WIDTH
             }, function (popup) {
                 popups[popup.id] = {id: window.id, width: window.width};
             });
         }
+
+        chrome.windows.update(window.id, {width: window.width - POPOUT_WIDTH}, launchPopup);
     });
 });
 
-chrome.windows.onRemoved.addListener(function (windowId) {
-    var windowBeforePopup = popups[windowId];
+chrome.windows.onRemoved.addListener(function (popupId) {
+    var windowBeforePopup = popups[popupId];
 
     if (windowBeforePopup != null) {
         chrome.windows.getCurrent(null, function (windowAfterPopup) {
