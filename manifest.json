@@ -3,13 +3,11 @@
 
     "name": "Salesforce1 Launcher",
     "description": "Launch Salesforce1 in a popup window.",
-    "version": "0.0.2",
+    "version": "0.0.3",
 	
     "background": {
         "scripts": ["background.js"]
     },
-
-    "permissions": ["tabs"],
 
     "browser_action": {
         "default_icon": "salesforce1.png",
