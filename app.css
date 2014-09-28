@@ -1,13 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
     width: 100%;
     margin: 0;
+    /*background: #34abfa;*/
+    background: transparent;
 }
 
 .Titlebar {
     width: 100%;
     height: 34px;
     -webkit-app-region: drag;
+    display: none;
 }
 
 .Titlebar-button {
@@ -18,7 +27,74 @@ html, body {
 
 webview {
     width: 100%;
-    height: calc(100% - 34px);
+    height: 100%;
     display: block;
 }
 
+
+.wrapper {
+    height: 100%;
+    -webkit-app-region: drag;
+}
+
+.iphone {
+    background: #202020;
+    width: 100%;
+    height: 100%;
+    border-radius: 3em;
+}
+
+.screen {
+    background: #2f2f2f;
+    width: 90%;
+    height: 75%;
+    position: absolute;
+    top: 12.5%;
+    left: 5%;
+    animation: lighten 5s infinite alternate;
+    -webkit-app-region: no-drag;
+}
+
+.button {
+    position: absolute;
+    bottom: 2.75%;
+    left: 42.5%;
+    background: #3f3f3f;
+    /* border: 1px solid #3f3f3f; */
+    width: 15%;
+    height: 0;
+    padding-top: 15%;
+    border-radius: 50%;
+}
+
+.square {
+    position: absolute;
+    top: 27.5%;
+    left: 27.5%;
+    border: 2px solid #d7d7d7;
+    border-radius: .3em;
+    width: 45%;
+    height: 45%;
+}
+
+@media screen and (min-width: 28em ) {
+    body{ font-size: 8px; }
+}
+
+@media screen and (min-width: 34em ) {
+    body{ font-size: 10px; }
+}
+
+@media screen and (min-width: 48em ) {
+    body{ font-size: 14px; }
+}
+
+@keyframes lighten {
+    0%, 45% { background: #2f2f2f; }
+    65%, 100% { background: #f7f7f7; }
+}
+
+@keyframes unhide {
+    0%, 55% { opacity: 0 }
+    75%, 100% { opacity: 1 }
+}

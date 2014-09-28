@@ -12,10 +12,11 @@ chrome.app.runtime.onLaunched.addListener(function() {
             'height': PHONE_HEIGHT
         },
         alwaysOnTop: true,
-//        frame: 'none'
+        resizable: false,
+        frame: 'none'
 //        frame: {
 //            type: 'chrome',
-//            color: '#333',
+//            color: '#fff',
 //            inactiveColor: '#fff'
 //        }
     });
