@@ -1,0 +1,24 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.Titlebar {
+    width: 100%;
+    height: 34px;
+    -webkit-app-region: drag;
+}
+
+.Titlebar-button {
+    display: inline-block;
+    height: 34px;
+    padding: 4px;
+}
+
+webview {
+    width: 100%;
+    height: calc(100% - 34px);
+    display: block;
+}
+

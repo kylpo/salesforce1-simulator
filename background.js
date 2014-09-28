@@ -1,7 +1,27 @@
-var PHONE_WIDTH = 360;
-var PHONE_HEIGHT = 640;
+//var PHONE_WIDTH = 360;
+//var PHONE_HEIGHT = 640;
+
+var PHONE_WIDTH = 320;
+var PHONE_HEIGHT = 604; //568 + 34
 var popups = {};
 
+chrome.app.runtime.onLaunched.addListener(function() {
+    chrome.app.window.create('app.html', {
+        bounds: {
+            'width': PHONE_WIDTH,
+            'height': PHONE_HEIGHT
+        },
+        alwaysOnTop: true,
+//        frame: 'none'
+//        frame: {
+//            type: 'chrome',
+//            color: '#333',
+//            inactiveColor: '#fff'
+//        }
+    });
+});
+
+/*
 // Performed when user clicks on the icon in their toolbar
 chrome.browserAction.onClicked.addListener(function () {
     chrome.windows.getCurrent(null, function (window) {
@@ -36,3 +56,4 @@ chrome.windows.onRemoved.addListener(function (popupId) {
         });
     }
 });
+    */
