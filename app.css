@@ -127,15 +127,20 @@ webview {
 
 .button {
     position: absolute;
-    bottom: 2.75%;
-    left: 42.5%;
+    /*bottom: 2.75%;*/
+    /*left: 42.5%;*/
     background: #3f3f3f;
     border: 1px solid #3f3f3f;
-    width: 15%;
-    height: 0;
-    padding-top: 15%;
+    /*width: 15%;*/
+    /*height: 0;*/
+    /*padding-top: 15%;*/
     border-radius: 50%;
     cursor: pointer;
+
+    width: 54px;
+    height: 54px;
+    left: calc(50% - 27px);
+    bottom: calc(6.25% - 27px);
 }
 
 .button.is-active {
