@@ -28,6 +28,7 @@ webview {
 }
 
 .options {
+    color: white;
     /*height: 50%;*/
     height: 0;
     max-height: 50%;
@@ -36,8 +37,8 @@ webview {
     /*max-width: 320px;*/
     position: absolute;
     bottom: 0;
-    /*background: #2f2f2f;*/
-    background: #2A94D6;
+    backggit round: #2f2f2f;
+    /*background: #2A94D6;*/
     opacity: .9;
     visibility: hidden;
 
@@ -67,7 +68,7 @@ webview {
 
 .option {
     display: inline-block;
-    /*height: 34px;*/
+    height: 44px;
     font-size: 24px;
     margin: 20px;
     max-width: 80px;
@@ -76,7 +77,16 @@ webview {
 }
 
 .option.is-active {
-    color: white;
+    /*color: white;*/
+    color: #2A94D6;
+}
+
+.option:hover {
+    color: #8199af;
+}
+
+.option.is-active:hover {
+    color: #2A94D6;
 }
 
 #iphone-5s-button {
@@ -93,6 +103,10 @@ webview {
 
 #ipad-button {
     font-size: 32px;
+}
+
+#close-window-button:hover {
+    color: #CF5C60;
 }
 
 

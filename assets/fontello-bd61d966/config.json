@@ -1,0 +1,76 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "861ab06e455e2de3232ebef67d60d708",
+      "css": "minus-1",
+      "code": 59399,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "c709da589c923ba3c2ad48d9fc563e93",
+      "css": "cancel-1",
+      "code": 59400,
+      "src": "entypo"
+    },
+    {
+      "uid": "1256e3054823e304d7e452a589cf8bb8",
+      "css": "minus",
+      "code": 59398,
+      "src": "entypo"
+    },
+    {
+      "uid": "767fede84586366cd7d6c835be745454",
+      "css": "mobile",
+      "code": 59392,
+      "src": "entypo"
+    },
+    {
+      "uid": "11e664deed5b2587456a4f9c01d720b6",
+      "css": "cancel",
+      "code": 59396,
+      "src": "iconic"
+    },
+    {
+      "uid": "971be54c1452e2558926d36786e6b1d7",
+      "css": "popup",
+      "code": 59397,
+      "src": "iconic"
+    },
+    {
+      "uid": "2adb5fa922bd92ebeef498ec7dbcae6d",
+      "css": "mobile-1",
+      "code": 59393,
+      "src": "iconic"
+    },
+    {
+      "uid": "rrhco7mfj6ro9yzhe4a1rbln9flw47re",
+      "css": "cancel-2",
+      "code": 59402,
+      "src": "modernpics"
+    },
+    {
+      "uid": "b2i5x0ka1m6pskm3puj9jppl672knd5c",
+      "css": "popup-1",
+      "code": 59401,
+      "src": "modernpics"
+    },
+    {
+      "uid": "m3m8301t2xdy30x4lp7txm0vztl67tcl",
+      "css": "mobile-2",
+      "code": 59394,
+      "src": "modernpics"
+    },
+    {
+      "uid": "r36ey62e6pi493s139u528739kjr3o8w",
+      "css": "tablet",
+      "code": 59395,
+      "src": "modernpics"
+    }
+  ]
+}
