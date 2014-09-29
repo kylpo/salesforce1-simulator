@@ -93,6 +93,25 @@ webview {
     height: 100%;
     border-radius: 3em;
 }
+.camera {
+    position: absolute;
+    top: 4%;
+    left: calc(50% - 5px);
+    background: #3f3f3f;
+    width: 10px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.speaker {
+    position: absolute;
+    top: 7%;
+    left: calc(50% - 27px);
+    background: #3f3f3f;
+    width: 54px;
+    height: 11px;
+    border-radius: 1em;
+}
 
 .screen {
     background: #2f2f2f;
@@ -151,6 +170,16 @@ webview {
 
 .tablet .button {
     bottom: calc(8.75% / 2 - 27px);
+}
+
+.tablet .camera {
+    left: 49.25%;
+    width: 1.5%;
+    padding-top: 1.5%;
+}
+
+.tablet .speaker {
+    display: none;
 }
 
 /*------------- UTILITY ---------------*/
