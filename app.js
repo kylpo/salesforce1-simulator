@@ -1,22 +1,14 @@
-//var IPHONE_5S_WIDTH = 320;
-//var IPHONE_5S_HEIGHT = 568;
-var IPHONE_5S_WIDTH = 356;
-var IPHONE_5S_HEIGHT = 755;
+var IPHONE_5S_WIDTH = 356;  // 320 is size of screen
+var IPHONE_5S_HEIGHT = 755; // 568 is size of screen
 
-//var IPHONE_6_WIDTH = 375;
-//var IPHONE_6_HEIGHT = 667;
-var IPHONE_6_WIDTH = 417;
-var IPHONE_6_HEIGHT = 889;
+var IPHONE_6_WIDTH = 417; // 375 is size of screen
+var IPHONE_6_HEIGHT = 889; // 667 is size of screen
 
-//var IPHONE_6_PLUS_WIDTH = 414;
-//var IPHONE_6_PLUS_HEIGHT = 736;
-var IPHONE_6_PLUS_WIDTH = 460;
-var IPHONE_6_PLUS_HEIGHT = 983;
+var IPHONE_6_PLUS_WIDTH = 460; // 414 is size of screen
+var IPHONE_6_PLUS_HEIGHT = 983; // 736 is size of screen
 
-//var IPAD_WIDTH = 768;
-//var IPAD_HEIGHT = 1024;
-var IPAD_WIDTH = 856;
-var IPAD_HEIGHT = 1367;
+var IPAD_WIDTH = 856; // 768 is size of screen
+var IPAD_HEIGHT = 1367; // 1024 is size of screen
 
 window.onload = function() {
     var physicalButton = document.getElementById("physical-button");
@@ -36,6 +28,7 @@ window.onload = function() {
 
     alwaysOnTopButton.onclick = function () {
         alwaysOnTopButton.classList.toggle('is-active');
+
         var appWindow = chrome.app.window.current();
         appWindow.setAlwaysOnTop(!appWindow.isAlwaysOnTop());
     };
@@ -99,10 +92,4 @@ window.onload = function() {
 
         chrome.app.window.current().resizeTo(IPAD_WIDTH, IPAD_HEIGHT);
     };
-
-//    function applyActiveClass(element) {
-//        if (element === iphone5sButton) {
-//
-//        }
-//    }
 };
