@@ -7,10 +7,12 @@ var IPHONE_6_HEIGHT = 889; // 667 is size of screen
 var IPHONE_6_PLUS_WIDTH = 460; // 414 is size of screen
 var IPHONE_6_PLUS_HEIGHT = 983; // 736 is size of screen
 
-var IPAD_WIDTH = 856; // 768 is size of screen
-var IPAD_HEIGHT = 1367; // 1024 is size of screen
+var IPAD_WIDTH = 931; // 768 is size of screen
+var IPAD_HEIGHT = 1240; // 1024 is size of screen
 
 window.onload = function() {
+    var device = document.getElementById("device");
+
     var physicalButton = document.getElementById("physical-button");
     var alwaysOnTopButton = document.getElementById("on-top-button");
     var minimizeButton = document.getElementById("minimize-window-button");
@@ -51,6 +53,8 @@ window.onload = function() {
         iphone6PlusButton.classList.remove('is-active');
         ipadButton.classList.remove('is-active');
 
+        device.classList.remove('tablet');
+
         chrome.app.window.current().resizeTo(IPHONE_5S_WIDTH, IPHONE_5S_HEIGHT);
     });
 
@@ -63,6 +67,8 @@ window.onload = function() {
         iphone6Button.classList.add('is-active');
         iphone6PlusButton.classList.remove('is-active');
         ipadButton.classList.remove('is-active');
+
+        device.classList.remove('tablet');
 
         chrome.app.window.current().resizeTo(IPHONE_6_WIDTH, IPHONE_6_HEIGHT);
     });
@@ -77,6 +83,8 @@ window.onload = function() {
         iphone6PlusButton.classList.add('is-active');
         ipadButton.classList.remove('is-active');
 
+        device.classList.remove('tablet');
+
         chrome.app.window.current().resizeTo(IPHONE_6_PLUS_WIDTH, IPHONE_6_PLUS_HEIGHT);
     };
 
@@ -89,6 +97,8 @@ window.onload = function() {
         iphone6Button.classList.remove('is-active');
         iphone6PlusButton.classList.remove('is-active');
         ipadButton.classList.add('is-active');
+
+        device.classList.add('tablet');
 
         chrome.app.window.current().resizeTo(IPAD_WIDTH, IPAD_HEIGHT);
     };
