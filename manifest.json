@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
 
-    "name": "Salesforce1 Launcher",
-    "description": "Launch Salesforce1 in a popup window.",
-    "version": "0.0.3",
+    "name": "Salesforce1 Simulator",
+    "description": "Launch Salesforce1 in a mobile simulator.",
+    "version": "0.0.1",
 
     "app": {
         "background": {
