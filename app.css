@@ -31,6 +31,33 @@ webview {
     display: block;
 }
 
+.options {
+    /*height: 50%;*/
+    height: 0;
+    /*max-height: 1em;*/
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    /*background: #2f2f2f;*/
+    background: #2A94D6;
+    opacity: .9;
+    /*visibility: hidden;*/
+
+    /*opacity:0;*/
+    /*transition:visibility 0s linear 0.5s,opacity 0.5s linear;*/
+
+    transition: height 0.2s ease-out;
+}
+
+.options.is-visible {
+    /*visibility: visible;*/
+    /*max-height: 20em;*/
+    /*opacity: 1;*/
+    height: 50%;
+
+    transition-delay:0s;
+}
+
 
 .wrapper {
     height: 100%;
@@ -60,11 +87,17 @@ webview {
     bottom: 2.75%;
     left: 42.5%;
     background: #3f3f3f;
-    /* border: 1px solid #3f3f3f; */
+    border: 1px solid #3f3f3f;
     width: 15%;
     height: 0;
     padding-top: 15%;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.button.is-active {
+    background: #2A94D6;
+    /*opacity: .9;*/
 }
 
 .square {

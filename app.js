@@ -25,9 +25,17 @@ var TITLE_BAR_HEIGHT = 34;
 //};
 
 window.onload = function() {
+    var physicalButton = document.getElementById("physical-button");
+    physicalButton.onclick = function () {
+        document.getElementById("options").classList.toggle('is-visible');
+        physicalButton.classList.toggle('is-active');
+    };
+
     document.getElementById("close-window-button").onclick = function () {
         window.close();
     };
+
+
 
     document.getElementById("iphone-5s-button").onclick = function () {
         chrome.app.window.current().resizeTo(IPHONE_5S_WIDTH, IPHONE_5S_HEIGHT + TITLE_BAR_HEIGHT);
