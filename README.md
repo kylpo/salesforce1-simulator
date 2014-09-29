@@ -13,3 +13,4 @@ Click and drag anywhere other than the screen to move the window.
 
 ## Thanks to
 * [iphone template](http://codepen.io/charlie-volpe/pen/xvcnE)
+* [ipad template](http://codepen.io/charlie-volpe/pen/xvcnE)
