@@ -20,28 +20,28 @@ window.onload = function() {
     var iphone6PlusButton = document.getElementById("iphone-6-plus-button");
     var ipadButton = document.getElementById("ipad-button");
 
-    physicalButton.onclick = function () {
+    physicalButton.addEventListener('click', function () {
         document.getElementById("options").classList.toggle('is-visible');
         document.getElementById("titlebar").classList.toggle('is-visible');
         physicalButton.classList.toggle('is-active');
-    };
+    });
 
-    alwaysOnTopButton.onclick = function () {
+    alwaysOnTopButton.addEventListener('click', function () {
         alwaysOnTopButton.classList.toggle('is-active');
 
         var appWindow = chrome.app.window.current();
         appWindow.setAlwaysOnTop(!appWindow.isAlwaysOnTop());
-    };
+    });
 
-    minimizeButton.onclick = function () {
+    minimizeButton.addEventListener('click', function () {
         chrome.app.window.current().minimize();
-    };
+    });
 
-    closeButton.onclick = function () {
+    closeButton.addEventListener('click', function () {
         chrome.app.window.current().close();
-    };
+    });
 
-    iphone5sButton.onclick = function () {
+    iphone5sButton.addEventListener('click', function () {
         if (iphone5sButton.classList.contains('is-active')) {
             return;
         }
@@ -52,9 +52,9 @@ window.onload = function() {
         ipadButton.classList.remove('is-active');
 
         chrome.app.window.current().resizeTo(IPHONE_5S_WIDTH, IPHONE_5S_HEIGHT);
-    };
+    });
 
-    iphone6Button.onclick = function () {
+    iphone6Button.addEventListener('click', function () {
         if (iphone6Button.classList.contains('is-active')) {
             return;
         }
@@ -65,7 +65,7 @@ window.onload = function() {
         ipadButton.classList.remove('is-active');
 
         chrome.app.window.current().resizeTo(IPHONE_6_WIDTH, IPHONE_6_HEIGHT);
-    };
+    });
 
     iphone6PlusButton.onclick = function () {
         if (iphone6PlusButton.classList.contains('is-active')) {

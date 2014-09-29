@@ -46,6 +46,8 @@ webview {
     margin: 20px;
     max-width: 80px;
     cursor: pointer;
+
+    -webkit-app-region: no-drag;
 }
 
 .option.is-active {
@@ -116,6 +118,8 @@ webview {
     bottom: calc(6.25% - 27px);
 
     transition: background-color 0.5s ease;
+
+    -webkit-app-region: no-drag;
 }
 
 .button:active {
