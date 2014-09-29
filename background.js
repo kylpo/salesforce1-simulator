@@ -1,18 +1,20 @@
 //var PHONE_WIDTH = 360;
 //var PHONE_HEIGHT = 640;
 
-var PHONE_WIDTH = 320;
-var PHONE_HEIGHT = 604; //568 + 34
+//var PHONE_WIDTH = 320;
+//var PHONE_HEIGHT = 604; //568 + 34
+var IPHONE_5S_WIDTH = 356;
+var IPHONE_5S_HEIGHT = 755;
 var popups = {};
 
 chrome.app.runtime.onLaunched.addListener(function() {
     chrome.app.window.create('app.html', {
         bounds: {
-            'width': PHONE_WIDTH,
-            'height': PHONE_HEIGHT
+            'width': IPHONE_5S_WIDTH,
+            'height': IPHONE_5S_HEIGHT
         },
         alwaysOnTop: true,
-        resizable: false,
+//        resizable: false,
         frame: 'none'
 //        frame: {
 //            type: 'chrome',

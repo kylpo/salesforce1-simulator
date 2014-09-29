@@ -12,15 +12,6 @@ html, body {
     background: transparent;
 }
 
-.Titlebar {
-    width: 100%;
-    height: 34px;
-    -webkit-app-region: drag;
-    display: none;
-}
-
-
-
 webview {
     width: 100%;
     height: 100%;
@@ -37,7 +28,7 @@ webview {
     /*max-width: 320px;*/
     position: absolute;
     bottom: 0;
-    backggit round: #2f2f2f;
+    background: #2f2f2f;
     /*background: #2A94D6;*/
     opacity: .9;
     visibility: hidden;
@@ -54,7 +45,8 @@ webview {
     /*max-height: 20em;*/
     /*opacity: 1;*/
     /*height: auto;*/
-    height: 50%;
+    /*height: 50%;*/
+    height: 221px;
 
     transition-delay:0s;
 }
@@ -161,24 +153,24 @@ webview {
     height: 45%;
 }
 
-@media screen and (min-width: 28em ) {
-    body{ font-size: 8px; }
-}
+/*@media screen and (min-width: 28em ) {*/
+    /*body{ font-size: 8px; }*/
+/*}*/
 
-@media screen and (min-width: 34em ) {
-    body{ font-size: 10px; }
-}
+/*@media screen and (min-width: 34em ) {*/
+    /*body{ font-size: 10px; }*/
+/*}*/
 
-@media screen and (min-width: 48em ) {
-    body{ font-size: 14px; }
-}
+/*@media screen and (min-width: 48em ) {*/
+    /*body{ font-size: 14px; }*/
+/*}*/
 
-@keyframes lighten {
-    0%, 45% { background: #2f2f2f; }
-    65%, 100% { background: #f7f7f7; }
-}
+/*@keyframes lighten {*/
+    /*0%, 45% { background: #2f2f2f; }*/
+    /*65%, 100% { background: #f7f7f7; }*/
+/*}*/
 
-@keyframes unhide {
-    0%, 55% { opacity: 0 }
-    75%, 100% { opacity: 1 }
-}
+/*@keyframes unhide {*/
+    /*0%, 55% { opacity: 0 }*/
+    /*75%, 100% { opacity: 1 }*/
+/*}*/
