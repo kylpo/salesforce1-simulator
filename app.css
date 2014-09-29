@@ -8,8 +8,14 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
-    /*background: #34abfa;*/
     background: transparent;
+    color: white;
+}
+
+#titlebar {
+    width: 100%;
+    position: absolute;
+    height: 92px;
 }
 
 webview {
@@ -19,43 +25,16 @@ webview {
 }
 
 .options {
-    color: white;
-    /*height: 50%;*/
-    /*height: 0;*/
-    max-height: 50%;
-    /*max-height: 1em;*/
     width: 100%;
-    /*max-width: 320px;*/
     position: absolute;
     bottom: 0;
     background: #2f2f2f;
-    /*background: #2A94D6;*/
-    opacity: 0;
-    visibility: hidden;
-    height: 221px;
-
-    /*opacity:0;*/
-    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
-
-    /*transition: height 0.2s ease-out;*/
-    /*transition: visibility 0.2s ease-out;*/
-}
-
-.options.is-visible {
-    visibility: visible;
-    /*max-height: 20em;*/
-    opacity: .9;
-    /*height: auto;*/
-    /*height: 50%;*/
-    /*height: 221px;*/
-
-    transition-delay:0s;
+    height: 92px;
 }
 
 .options-container {
     max-width: 320px;
     width: 100%;
-
     margin: auto;
 }
 
@@ -66,11 +45,9 @@ webview {
     margin: 20px;
     max-width: 80px;
     cursor: pointer;
-    /*padding: 4px;*/
 }
 
 .option.is-active {
-    /*color: white;*/
     color: #2A94D6;
 }
 
@@ -102,13 +79,12 @@ webview {
     color: #CF5C60;
 }
 
-
 .wrapper {
     height: 100%;
     -webkit-app-region: drag;
 }
 
-.iphone {
+.device {
     background: #202020;
     width: 100%;
     height: 100%;
@@ -128,13 +104,8 @@ webview {
 
 .button {
     position: absolute;
-    /*bottom: 2.75%;*/
-    /*left: 42.5%;*/
     background: #3f3f3f;
     border: 1px solid #3f3f3f;
-    /*width: 15%;*/
-    /*height: 0;*/
-    /*padding-top: 15%;*/
     border-radius: 50%;
     cursor: pointer;
 
@@ -142,11 +113,17 @@ webview {
     height: 54px;
     left: calc(50% - 27px);
     bottom: calc(6.25% - 27px);
+
+    transition: background-color 0.5s ease;
+}
+
+.button:active {
+    transition: background-color 0s ease;
+    background: #333;
 }
 
 .button.is-active {
     background: #2A94D6;
-    /*opacity: .9;*/
 }
 
 .square {
@@ -159,24 +136,20 @@ webview {
     height: 45%;
 }
 
-/*@media screen and (min-width: 28em ) {*/
-    /*body{ font-size: 8px; }*/
-/*}*/
+/*------------- UTILITY ---------------*/
 
-/*@media screen and (min-width: 34em ) {*/
-    /*body{ font-size: 10px; }*/
-/*}*/
+.fade-in {
+    opacity: 0;
+    visibility: hidden;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
 
-/*@media screen and (min-width: 48em ) {*/
-    /*body{ font-size: 14px; }*/
-/*}*/
+.fade-in.is-visible {
+    visibility: visible;
+    opacity: .9;
+    transition-delay:0s;
+}
 
-/*@keyframes lighten {*/
-    /*0%, 45% { background: #2f2f2f; }*/
-    /*65%, 100% { background: #f7f7f7; }*/
-/*}*/
-
-/*@keyframes unhide {*/
-    /*0%, 55% { opacity: 0 }*/
-    /*75%, 100% { opacity: 1 }*/
-/*}*/
+.right {
+    float: right;
+}

@@ -18,23 +18,6 @@ var IPHONE_6_PLUS_HEIGHT = 983;
 var IPAD_WIDTH = 856;
 var IPAD_HEIGHT = 1367;
 
-
-//var TITLE_BAR_HEIGHT = 34;
-
-//var IPAD_MINI_WIDTH = 768;
-//var IPAD_MINI_HEIGHT = 1024;
-
-//debugger;
-//document.onload = function(e){
-//    debugger;
-//    document.getElementById("close").onclick = function () {
-////        console.log("THERE");
-//        window.close();
-//    }
-//};
-
-
-
 window.onload = function() {
     var physicalButton = document.getElementById("physical-button");
     var alwaysOnTopButton = document.getElementById("on-top-button");
@@ -47,6 +30,7 @@ window.onload = function() {
 
     physicalButton.onclick = function () {
         document.getElementById("options").classList.toggle('is-visible');
+        document.getElementById("titlebar").classList.toggle('is-visible');
         physicalButton.classList.toggle('is-active');
     };
 

@@ -14,7 +14,7 @@ chrome.app.runtime.onLaunched.addListener(function() {
             'height': IPHONE_5S_HEIGHT
         },
         alwaysOnTop: true,
-//        resizable: false,
+        resizable: false,
         frame: 'none'
 //        frame: {
 //            type: 'chrome',

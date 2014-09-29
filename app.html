@@ -7,15 +7,22 @@
 <body>
 
 <div class="wrapper">
-    <div class="iphone">
+    <div id="titlebar" class="fade-in">
+        <div id="on-top-button" class="option icon-popup-1 is-active"></div>
+        <div class="right">
+            <div id="minimize-window-button" class="option icon-minus"></div>
+            <div id="close-window-button" class="option icon-cancel-1"></div>
+        </div>
+    </div>
+    <div class="device">
         <div class="screen">
             <webview src="https://login.salesforce.com/one/one.app"></webview>
-            <div id="options" class="options">
+            <div id="options" class="options fade-in">
                 <div class="options-container">
-                    <div class="option"></div>
-                    <div id="on-top-button" class="option icon-popup-1 is-active"></div>
-                    <div id="minimize-window-button" class="option icon-minus"></div>
-                    <div id="close-window-button" class="option icon-cancel-1"></div>
+                    <!--<div class="option"></div>-->
+                    <!--<div id="on-top-button" class="option icon-popup-1 is-active"></div>-->
+                    <!--<div id="minimize-window-button" class="option icon-minus"></div>-->
+                    <!--<div id="close-window-button" class="option icon-cancel-1"></div>-->
 
                     <div id="iphone-5s-button" class="option icon-mobile is-active"></div>
                     <div id="iphone-6-button" class="option icon-mobile"></div>
