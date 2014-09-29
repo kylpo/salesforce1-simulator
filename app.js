@@ -31,11 +31,18 @@ window.onload = function() {
         physicalButton.classList.toggle('is-active');
     };
 
-    document.getElementById("close-window-button").onclick = function () {
-        window.close();
+    document.getElementById("on-top-button").onclick = function () {
+        var appWindow = chrome.app.window.current();
+        appWindow.setAlwaysOnTop(!appWindow.isAlwaysOnTop());
     };
 
+    document.getElementById("minimize-window-button").onclick = function () {
+        chrome.app.window.current().minimize();
+    };
 
+    document.getElementById("close-window-button").onclick = function () {
+        chrome.app.window.current().close();
+    };
 
     document.getElementById("iphone-5s-button").onclick = function () {
         chrome.app.window.current().resizeTo(IPHONE_5S_WIDTH, IPHONE_5S_HEIGHT + TITLE_BAR_HEIGHT);

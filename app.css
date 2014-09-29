@@ -19,11 +19,7 @@ html, body {
     display: none;
 }
 
-.Titlebar-button {
-    display: inline-block;
-    height: 34px;
-    padding: 4px;
-}
+
 
 webview {
     width: 100%;
@@ -34,28 +30,69 @@ webview {
 .options {
     /*height: 50%;*/
     height: 0;
+    max-height: 50%;
     /*max-height: 1em;*/
     width: 100%;
+    /*max-width: 320px;*/
     position: absolute;
     bottom: 0;
     /*background: #2f2f2f;*/
     background: #2A94D6;
     opacity: .9;
-    /*visibility: hidden;*/
+    visibility: hidden;
 
     /*opacity:0;*/
     /*transition:visibility 0s linear 0.5s,opacity 0.5s linear;*/
 
     transition: height 0.2s ease-out;
+    /*transition: visibility 0.2s ease-out;*/
 }
 
 .options.is-visible {
-    /*visibility: visible;*/
+    visibility: visible;
     /*max-height: 20em;*/
     /*opacity: 1;*/
+    /*height: auto;*/
     height: 50%;
 
     transition-delay:0s;
+}
+
+.options-container {
+    max-width: 320px;
+    width: 100%;
+
+    margin: auto;
+}
+
+.option {
+    display: inline-block;
+    /*height: 34px;*/
+    font-size: 24px;
+    margin: 20px;
+    max-width: 80px;
+    cursor: pointer;
+    /*padding: 4px;*/
+}
+
+.option.is-active {
+    color: white;
+}
+
+#iphone-5s-button {
+    font-size: 20px;
+}
+
+#iphone-6-button {
+    font-size: 22px;
+}
+
+#iphone-6-plus-button {
+    font-size: 26px;
+}
+
+#ipad-button {
+    font-size: 32px;
 }
 
 
