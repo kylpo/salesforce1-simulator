@@ -21,7 +21,7 @@ webview {
 .options {
     color: white;
     /*height: 50%;*/
-    height: 0;
+    /*height: 0;*/
     max-height: 50%;
     /*max-height: 1em;*/
     width: 100%;
@@ -30,23 +30,24 @@ webview {
     bottom: 0;
     background: #2f2f2f;
     /*background: #2A94D6;*/
-    opacity: .9;
+    opacity: 0;
     visibility: hidden;
+    height: 221px;
 
     /*opacity:0;*/
-    /*transition:visibility 0s linear 0.5s,opacity 0.5s linear;*/
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
 
-    transition: height 0.2s ease-out;
+    /*transition: height 0.2s ease-out;*/
     /*transition: visibility 0.2s ease-out;*/
 }
 
 .options.is-visible {
     visibility: visible;
     /*max-height: 20em;*/
-    /*opacity: 1;*/
+    opacity: .9;
     /*height: auto;*/
     /*height: 50%;*/
-    height: 221px;
+    /*height: 221px;*/
 
     transition-delay:0s;
 }
