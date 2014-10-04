@@ -143,6 +143,10 @@ webview {
     color: #2A94D6;
 }
 
+#url-input:invalid {
+    color: #CF5C60;
+}
+
 .button {
     position: absolute;
     background: #3f3f3f;
