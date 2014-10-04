@@ -25,6 +25,12 @@
       "src": "entypo"
     },
     {
+      "uid": "3bd18d47a12b8709e9f4fe9ead4f7518",
+      "css": "arrows-ccw",
+      "code": 59405,
+      "src": "entypo"
+    },
+    {
       "uid": "767fede84586366cd7d6c835be745454",
       "css": "mobile",
       "code": 59392,
@@ -71,6 +77,18 @@
       "css": "tablet",
       "code": 59395,
       "src": "modernpics"
+    },
+    {
+      "uid": "d3fa106db96ff869d1ad75506ba5ff50",
+      "css": "coverflow",
+      "code": 59403,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "cf0523ff3f333523eb6e9f6642dd0ddc",
+      "css": "coverflow-empty",
+      "code": 59404,
+      "src": "mfglabs"
     }
   ]
 }

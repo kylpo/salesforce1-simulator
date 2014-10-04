@@ -8,7 +8,7 @@
 
 <div class="wrapper">
     <div id="titlebar" class="fade-in">
-        <div id="on-top-button" class="option icon-popup-1 is-active"></div>
+        <div id="on-top-button" class="option icon-coverflow is-active"></div>
         <div class="right">
             <div id="minimize-window-button" class="option icon-minus"></div>
             <div id="close-window-button" class="option icon-cancel-1"></div>
@@ -19,14 +19,15 @@
         <div class="camera"></div>
         <div class="speaker"></div>
         <div class="screen">
+            <form id="address-bar" class="options top fade-in">
+                <!--<div class="options-container">-->
+                    <input id="url-input" type="url" value="" target="_blank"/>
+                    <!--<div id="refresh-button" class="option icon-arrows-ccw"></div>-->
+                <!--</div>-->
+            </form>
             <webview src="https://login.salesforce.com/one/one.app"></webview>
-            <div id="options" class="options fade-in">
+            <div id="options" class="options bottom fade-in">
                 <div class="options-container">
-                    <!--<div class="option"></div>-->
-                    <!--<div id="on-top-button" class="option icon-popup-1 is-active"></div>-->
-                    <!--<div id="minimize-window-button" class="option icon-minus"></div>-->
-                    <!--<div id="close-window-button" class="option icon-cancel-1"></div>-->
-
                     <div id="iphone-5s-button" class="option icon-mobile is-active"></div>
                     <div id="iphone-6-button" class="option icon-mobile"></div>
                     <div id="iphone-6-plus-button" class="option icon-mobile"></div>

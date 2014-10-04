@@ -28,9 +28,8 @@ webview {
 .options {
     width: 100%;
     position: absolute;
-    bottom: 0;
     background: #2f2f2f;
-    height: 92px;
+    /*height: 92px;*/
 }
 
 .options-container {
@@ -41,9 +40,9 @@ webview {
 
 .option {
     display: inline-block;
-    height: 44px;
+    /*height: 44px;*/
     font-size: 24px;
-    margin: 20px;
+    padding: 20px 22px;
     max-width: 80px;
     cursor: pointer;
 
@@ -124,6 +123,29 @@ webview {
     -webkit-app-region: no-drag;
 }
 
+#url-input {
+    border: none;
+    outline: none;
+    background: inherit;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 14px;
+    padding: 2px;
+    width: 80%;
+    margin: 20px 10%;
+    text-align: center;
+}
+
+#url-input:hover {
+    border-color: #8199af;
+    color: #8199af;
+}
+
+#url-input:active, #url-input:focus {
+    border-color: #2A94D6;
+    color: #2A94D6;
+}
+
 .button {
     position: absolute;
     background: #3f3f3f;
@@ -198,4 +220,12 @@ webview {
 
 .right {
     float: right;
+}
+
+.top {
+    top: 0;
+}
+
+.bottom {
+    bottom: 0;
 }
