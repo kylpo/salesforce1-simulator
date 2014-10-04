@@ -14,21 +14,21 @@ var F5_KEY = 116;
 var R_KEY = 82;
 
 window.onload = function() {
-    var device = document.getElementById("device");
-    var physicalButton = document.getElementById("physical-button");
-    var alwaysOnTopButton = document.getElementById("on-top-button");
-    var minimizeButton = document.getElementById("minimize-window-button");
-    var closeButton = document.getElementById("close-window-button");
-    var iphone5sButton = document.getElementById("iphone-5s-button");
-    var iphone6Button = document.getElementById("iphone-6-button");
-    var iphone6PlusButton = document.getElementById("iphone-6-plus-button");
-    var ipadButton = document.getElementById("ipad-button");
+    var device = document.getElementById('device');
+    var physicalButton = document.getElementById('physical-button');
+    var alwaysOnTopButton = document.getElementById('on-top-button');
+    var minimizeButton = document.getElementById('minimize-window-button');
+    var closeButton = document.getElementById('close-window-button');
+    var iphone5sButton = document.getElementById('iphone-5s-button');
+    var iphone6Button = document.getElementById('iphone-6-button');
+    var iphone6PlusButton = document.getElementById('iphone-6-plus-button');
+    var ipadButton = document.getElementById('ipad-button');
 
     var webviewElement = document.querySelector('webview');
 
     physicalButton.addEventListener('click', function () {
-        document.getElementById("options").classList.toggle('is-visible');
-        document.getElementById("titlebar").classList.toggle('is-visible');
+        document.getElementById('options').classList.toggle('is-visible');
+        document.getElementById('titlebar').classList.toggle('is-visible');
         physicalButton.classList.toggle('is-active');
     });
 
