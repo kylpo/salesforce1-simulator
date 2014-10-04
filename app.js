@@ -10,9 +10,11 @@ var IPHONE_6_PLUS_HEIGHT = 983; // 736 is size of screen
 var IPAD_WIDTH = 931; // 768 is size of screen
 var IPAD_HEIGHT = 1240; // 1024 is size of screen
 
+var F5_KEY = 116;
+var R_KEY = 82;
+
 window.onload = function() {
     var device = document.getElementById("device");
-
     var physicalButton = document.getElementById("physical-button");
     var alwaysOnTopButton = document.getElementById("on-top-button");
     var minimizeButton = document.getElementById("minimize-window-button");
@@ -21,6 +23,8 @@ window.onload = function() {
     var iphone6Button = document.getElementById("iphone-6-button");
     var iphone6PlusButton = document.getElementById("iphone-6-plus-button");
     var ipadButton = document.getElementById("ipad-button");
+
+    var webviewElement = document.querySelector('webview');
 
     physicalButton.addEventListener('click', function () {
         document.getElementById("options").classList.toggle('is-visible');
@@ -73,7 +77,7 @@ window.onload = function() {
         chrome.app.window.current().resizeTo(IPHONE_6_WIDTH, IPHONE_6_HEIGHT);
     });
 
-    iphone6PlusButton.onclick = function () {
+    iphone6PlusButton.addEventListener('click', function () {
         if (iphone6PlusButton.classList.contains('is-active')) {
             return;
         }
@@ -86,9 +90,9 @@ window.onload = function() {
         device.classList.remove('tablet');
 
         chrome.app.window.current().resizeTo(IPHONE_6_PLUS_WIDTH, IPHONE_6_PLUS_HEIGHT);
-    };
+    });
 
-    ipadButton.onclick = function () {
+    ipadButton.addEventListener('click', function () {
         if (ipadButton.classList.contains('is-active')) {
             return;
         }
@@ -101,5 +105,13 @@ window.onload = function() {
         device.classList.add('tablet');
 
         chrome.app.window.current().resizeTo(IPAD_WIDTH, IPAD_HEIGHT);
-    };
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.keyCode === F5_KEY) {
+            webviewElement.reload();
+        } else if (event.keyCode == R_KEY && (event.ctrlKey || event.metaKey)) {
+            webviewElement.reload();
+        }
+    });
 };
