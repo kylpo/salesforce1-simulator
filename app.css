@@ -29,7 +29,6 @@ webview {
     width: 100%;
     position: absolute;
     background: #2f2f2f;
-    /*height: 92px;*/
 }
 
 .options-container {
@@ -40,17 +39,15 @@ webview {
 
 .option {
     display: inline-block;
-    /*height: 44px;*/
     font-size: 24px;
     padding: 20px 22px;
     max-width: 80px;
     cursor: pointer;
-
-    -webkit-app-region: no-drag;
 }
 
 .option.is-active {
     color: #2A94D6;
+    -webkit-app-region: no-drag;
 }
 
 .option:hover {

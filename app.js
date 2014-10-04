@@ -10,6 +10,8 @@ var IPHONE_6_PLUS_HEIGHT = 983; // 736 is size of screen
 var IPAD_WIDTH = 931; // 768 is size of screen
 var IPAD_HEIGHT = 1240; // 1024 is size of screen
 
+var DEFAULT_URL = 'https://login.salesforce.com/one/one.app';
+
 var F5_KEY = 116;
 var R_KEY = 82;
 
@@ -31,98 +33,107 @@ window.onload = function() {
 
     var webviewElement = document.querySelector('webview');
 
-    physicalButton.addEventListener('click', function () {
-        document.getElementById('options').classList.toggle('is-visible');
-        document.getElementById('address-bar').classList.toggle('is-visible');
-        document.getElementById('titlebar').classList.toggle('is-visible');
-        physicalButton.classList.toggle('is-active');
-    });
+    setAppState();
+    addListeners();
 
-    alwaysOnTopButton.addEventListener('click', function () {
-        alwaysOnTopButton.classList.toggle('is-active');
+    function setAppState() {
+        webviewElement.setAttribute('src', DEFAULT_URL);
+    }
 
-        var appWindow = chrome.app.window.current();
-        appWindow.setAlwaysOnTop(!appWindow.isAlwaysOnTop());
-    });
+    function addListeners() {
+        physicalButton.addEventListener('click', function () {
+            document.getElementById('options').classList.toggle('is-visible');
+            document.getElementById('address-bar').classList.toggle('is-visible');
+            document.getElementById('titlebar').classList.toggle('is-visible');
+            physicalButton.classList.toggle('is-active');
+        });
 
-    minimizeButton.addEventListener('click', function () {
-        chrome.app.window.current().minimize();
-    });
+        alwaysOnTopButton.addEventListener('click', function () {
+            alwaysOnTopButton.classList.toggle('is-active');
 
-    closeButton.addEventListener('click', function () {
-        chrome.app.window.current().close();
-    });
+            var appWindow = chrome.app.window.current();
+            appWindow.setAlwaysOnTop(!appWindow.isAlwaysOnTop());
+        });
 
-    iphone5sButton.addEventListener('click', function () {
-        if (iphone5sButton.classList.contains('is-active')) {
-            return;
-        }
+        minimizeButton.addEventListener('click', function () {
+            chrome.app.window.current().minimize();
+        });
 
-        iphone5sButton.classList.add('is-active');
-        iphone6Button.classList.remove('is-active');
-        iphone6PlusButton.classList.remove('is-active');
-        ipadButton.classList.remove('is-active');
+        closeButton.addEventListener('click', function () {
+            chrome.app.window.current().close();
+        });
 
-        device.classList.remove('tablet');
+        iphone5sButton.addEventListener('click', function () {
+            if (iphone5sButton.classList.contains('is-active')) {
+                return;
+            }
 
-        chrome.app.window.current().resizeTo(IPHONE_5S_WIDTH, IPHONE_5S_HEIGHT);
-    });
+            iphone5sButton.classList.add('is-active');
+            iphone6Button.classList.remove('is-active');
+            iphone6PlusButton.classList.remove('is-active');
+            ipadButton.classList.remove('is-active');
 
-    iphone6Button.addEventListener('click', function () {
-        if (iphone6Button.classList.contains('is-active')) {
-            return;
-        }
+            device.classList.remove('tablet');
 
-        iphone5sButton.classList.remove('is-active');
-        iphone6Button.classList.add('is-active');
-        iphone6PlusButton.classList.remove('is-active');
-        ipadButton.classList.remove('is-active');
+            chrome.app.window.current().resizeTo(IPHONE_5S_WIDTH, IPHONE_5S_HEIGHT);
+        });
 
-        device.classList.remove('tablet');
+        iphone6Button.addEventListener('click', function () {
+            if (iphone6Button.classList.contains('is-active')) {
+                return;
+            }
 
-        chrome.app.window.current().resizeTo(IPHONE_6_WIDTH, IPHONE_6_HEIGHT);
-    });
+            iphone5sButton.classList.remove('is-active');
+            iphone6Button.classList.add('is-active');
+            iphone6PlusButton.classList.remove('is-active');
+            ipadButton.classList.remove('is-active');
 
-    iphone6PlusButton.addEventListener('click', function () {
-        if (iphone6PlusButton.classList.contains('is-active')) {
-            return;
-        }
+            device.classList.remove('tablet');
 
-        iphone5sButton.classList.remove('is-active');
-        iphone6Button.classList.remove('is-active');
-        iphone6PlusButton.classList.add('is-active');
-        ipadButton.classList.remove('is-active');
+            chrome.app.window.current().resizeTo(IPHONE_6_WIDTH, IPHONE_6_HEIGHT);
+        });
 
-        device.classList.remove('tablet');
+        iphone6PlusButton.addEventListener('click', function () {
+            if (iphone6PlusButton.classList.contains('is-active')) {
+                return;
+            }
 
-        chrome.app.window.current().resizeTo(IPHONE_6_PLUS_WIDTH, IPHONE_6_PLUS_HEIGHT);
-    });
+            iphone5sButton.classList.remove('is-active');
+            iphone6Button.classList.remove('is-active');
+            iphone6PlusButton.classList.add('is-active');
+            ipadButton.classList.remove('is-active');
 
-    ipadButton.addEventListener('click', function () {
-        if (ipadButton.classList.contains('is-active')) {
-            return;
-        }
+            device.classList.remove('tablet');
 
-        iphone5sButton.classList.remove('is-active');
-        iphone6Button.classList.remove('is-active');
-        iphone6PlusButton.classList.remove('is-active');
-        ipadButton.classList.add('is-active');
+            chrome.app.window.current().resizeTo(IPHONE_6_PLUS_WIDTH, IPHONE_6_PLUS_HEIGHT);
+        });
 
-        device.classList.add('tablet');
+        ipadButton.addEventListener('click', function () {
+            if (ipadButton.classList.contains('is-active')) {
+                return;
+            }
 
-        chrome.app.window.current().resizeTo(IPAD_WIDTH, IPAD_HEIGHT);
-    });
+            iphone5sButton.classList.remove('is-active');
+            iphone6Button.classList.remove('is-active');
+            iphone6PlusButton.classList.remove('is-active');
+            ipadButton.classList.add('is-active');
 
-    addressBarForm.addEventListener('submit', function() {
-        //TODO: validate urlInput.value
-        webviewElement.setAttribute('src', urlInput.value);
-    });
+            device.classList.add('tablet');
 
-    document.addEventListener('keydown', function (event) {
-        if (event.keyCode === F5_KEY) {
-            webviewElement.reload();
-        } else if (event.keyCode == R_KEY && (event.ctrlKey || event.metaKey)) {
-            webviewElement.reload();
-        }
-    });
+            chrome.app.window.current().resizeTo(IPAD_WIDTH, IPAD_HEIGHT);
+        });
+
+        addressBarForm.addEventListener('submit', function () {
+            //TODO: validate urlInput.value
+            webviewElement.setAttribute('src', urlInput.value);
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.keyCode === F5_KEY) {
+                webviewElement.reload();
+            } else if (event.keyCode == R_KEY && (event.ctrlKey || event.metaKey)) {
+                webviewElement.reload();
+            }
+        });
+    }
 };
