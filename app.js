@@ -37,7 +37,17 @@ window.onload = function() {
     addListeners();
 
     function setAppState() {
-        webviewElement.setAttribute('src', DEFAULT_URL);
+        chrome.storage.local.get('url', function(storage) {
+//            var url = DEFAULT_URL;
+//            debugger;
+            if (storage.url != null && storage.url !== '') {
+                webviewElement.setAttribute('src', storage.url);
+                urlInput.value = storage.url;
+            } else {
+                webviewElement.setAttribute('src', DEFAULT_URL);
+            }
+        });
+//        webviewElement.setAttribute('src', DEFAULT_URL);
     }
 
     function addListeners() {
@@ -125,7 +135,20 @@ window.onload = function() {
 
         addressBarForm.addEventListener('submit', function () {
             //TODO: validate urlInput.value
-            webviewElement.setAttribute('src', urlInput.value);
+            chrome.storage.local.set({url: urlInput.value});
+//            webviewElement.setAttribute('src', urlInput.value);
+        });
+
+        chrome.storage.onChanged.addListener(function (changes, areaName) {
+            var url = changes.url;
+
+            if (url != null) {
+                if (url.newValue !== '') {
+                    webviewElement.setAttribute('src', urlInput.value);
+                } else {
+                    webviewElement.setAttribute('src', DEFAULT_URL);
+                }
+            }
         });
 
         document.addEventListener('keydown', function (event) {

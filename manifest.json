@@ -13,7 +13,8 @@
 
     "permissions": [
         "webview",
-        "alwaysOnTopWindows"
+        "alwaysOnTopWindows",
+        "storage"
     ],
 
     "icons": {
