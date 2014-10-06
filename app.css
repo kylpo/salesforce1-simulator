@@ -39,19 +39,23 @@ webview {
 
 .option {
     display: inline-block;
-    font-size: 24px;
+    font-size: 20px;
     padding: 20px 22px;
     max-width: 80px;
     cursor: pointer;
+    -webkit-app-region: no-drag;
 }
 
 .option.is-active {
     color: #2A94D6;
-    -webkit-app-region: no-drag;
 }
 
 .option:hover {
     color: #8199af;
+}
+
+.option:active {
+    color: #2A94D6;
 }
 
 .option.is-active:hover {
@@ -99,6 +103,10 @@ webview {
     border-radius: 50%;
 }
 
+#refresh-button {
+    padding: 20px 10px;
+}
+
 .speaker {
     position: absolute;
     top: 7%;
@@ -128,8 +136,8 @@ webview {
     color: white;
     font-size: 14px;
     padding: 2px;
-    width: 80%;
-    margin: 20px 10%;
+    width: calc(100% - 96px);
+    margin: 20px 0;
     text-align: center;
 }
 
@@ -224,7 +232,7 @@ webview {
 }
 
 .top {
-    top: 0;
+    top: -1px; /* should be 0, but for some reason this doesn't show on top in screen */
 }
 
 .bottom {

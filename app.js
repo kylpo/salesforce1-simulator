@@ -25,6 +25,7 @@ window.onload = function() {
 
     var addressBarForm = document.getElementById('address-bar');
     var urlInput = document.getElementById('url-input');
+    var refreshButton = document.getElementById('refresh-button');
 
     var iphone5sButton = document.getElementById('iphone-5s-button');
     var iphone6Button = document.getElementById('iphone-6-button');
@@ -133,6 +134,10 @@ window.onload = function() {
         addressBarForm.addEventListener('submit', function () {
             //TODO: validate urlInput.value
             chrome.storage.local.set({url: urlInput.value});
+        });
+
+        refreshButton.addEventListener('click', function () {
+            webviewElement.reload();
         });
 
         chrome.storage.onChanged.addListener(function (changes, areaName) {
