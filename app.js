@@ -1,14 +1,18 @@
 var IPHONE_5S_WIDTH = 356;  // 320 is size of screen
 var IPHONE_5S_HEIGHT = 755; // 568 is size of screen
+var IPHONE_USER_AGENT = 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53';
 
 var IPHONE_6_WIDTH = 417; // 375 is size of screen
 var IPHONE_6_HEIGHT = 889; // 667 is size of screen
+//var IPHONE_6_USER_AGENT = 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4';
 
 var IPHONE_6_PLUS_WIDTH = 460; // 414 is size of screen
 var IPHONE_6_PLUS_HEIGHT = 983; // 736 is size of screen
+//var IPHONE_6_PLUS_USER_AGENT = 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4';
 
 var IPAD_WIDTH = 931; // 768 is size of screen
 var IPAD_HEIGHT = 1240; // 1024 is size of screen
+var IPAD_USER_AGENT = 'Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53';
 
 var DEFAULT_URL = 'https://login.salesforce.com/one/one.app';
 
@@ -34,21 +38,60 @@ window.onload = function() {
 
     var webviewElement = document.querySelector('webview');
 
-    setAppState();
-    addListeners();
+    initAppState();
+    addAppListeners();
+    addButtonListeners();
 
-    function setAppState() {
-        chrome.storage.local.get(['url','device','alwaysOnTop'], function(storage) {
+    function initAppState() {
+        webviewElement.setUserAgentOverride(IPHONE_USER_AGENT);
+
+        chrome.storage.local.get(['url','alwaysOnTop'], function(storage) {
+            // set url state
             if (storage.url != null && storage.url !== '') {
                 webviewElement.setAttribute('src', storage.url);
                 urlInput.value = storage.url;
             } else {
                 webviewElement.setAttribute('src', DEFAULT_URL);
             }
+
+            // set alwaysOnTop state
+            if (storage.alwaysOnTop != null && storage.alwaysOnTop === true) {
+                alwaysOnTopButton.classList.add('is-active');
+                chrome.app.window.current().setAlwaysOnTop(true);
+            }
+
         });
     }
 
-    function addListeners() {
+    function addAppListeners() {
+        // When an event happens in storage, reflect the change in the app's state
+        chrome.storage.onChanged.addListener(function (changes, areaName) {
+            var url = changes.url;
+            var alwaysOnTop = changes.alwaysOnTop;
+
+            if (url != null) {
+                if (url.newValue !== '') {
+                    webviewElement.setAttribute('src', urlInput.value);
+                } else {
+                    webviewElement.setAttribute('src', DEFAULT_URL);
+                }
+            }
+
+            if (alwaysOnTop != null) {
+                chrome.app.window.current().setAlwaysOnTop(alwaysOnTop.newValue);
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.keyCode === F5_KEY) {
+                webviewElement.reload();
+            } else if (event.keyCode == R_KEY && (event.ctrlKey || event.metaKey)) {
+                webviewElement.reload();
+            }
+        });
+    }
+
+    function addButtonListeners() {
         physicalButton.addEventListener('click', function () {
             document.getElementById('options').classList.toggle('is-visible');
             document.getElementById('address-bar').classList.toggle('is-visible');
@@ -59,8 +102,7 @@ window.onload = function() {
         alwaysOnTopButton.addEventListener('click', function () {
             alwaysOnTopButton.classList.toggle('is-active');
 
-            var appWindow = chrome.app.window.current();
-            appWindow.setAlwaysOnTop(!appWindow.isAlwaysOnTop());
+            chrome.storage.local.set({alwaysOnTop: !chrome.app.window.current().isAlwaysOnTop()});
         });
 
         minimizeButton.addEventListener('click', function () {
@@ -70,6 +112,16 @@ window.onload = function() {
         closeButton.addEventListener('click', function () {
             chrome.app.window.current().close();
         });
+
+        refreshButton.addEventListener('click', function () {
+            webviewElement.reload();
+        });
+
+        addressBarForm.addEventListener('submit', function () {
+            //TODO: validate urlInput.value
+            chrome.storage.local.set({url: urlInput.value});
+        });
+
 
         iphone5sButton.addEventListener('click', function () {
             if (iphone5sButton.classList.contains('is-active')) {
@@ -81,6 +133,7 @@ window.onload = function() {
             iphone6PlusButton.classList.remove('is-active');
             ipadButton.classList.remove('is-active');
 
+            webviewElement.setUserAgentOverride(IPHONE_USER_AGENT);
             device.classList.remove('tablet');
 
             chrome.app.window.current().resizeTo(IPHONE_5S_WIDTH, IPHONE_5S_HEIGHT);
@@ -96,6 +149,8 @@ window.onload = function() {
             iphone6PlusButton.classList.remove('is-active');
             ipadButton.classList.remove('is-active');
 
+//            webviewElement.setUserAgentOverride(IPHONE_6_USER_AGENT);
+            webviewElement.setUserAgentOverride(IPHONE_USER_AGENT);
             device.classList.remove('tablet');
 
             chrome.app.window.current().resizeTo(IPHONE_6_WIDTH, IPHONE_6_HEIGHT);
@@ -111,6 +166,8 @@ window.onload = function() {
             iphone6PlusButton.classList.add('is-active');
             ipadButton.classList.remove('is-active');
 
+//            webviewElement.setUserAgentOverride(IPHONE_6_PLUS_USER_AGENT);
+            webviewElement.setUserAgentOverride(IPHONE_USER_AGENT);
             device.classList.remove('tablet');
 
             chrome.app.window.current().resizeTo(IPHONE_6_PLUS_WIDTH, IPHONE_6_PLUS_HEIGHT);
@@ -126,38 +183,10 @@ window.onload = function() {
             iphone6PlusButton.classList.remove('is-active');
             ipadButton.classList.add('is-active');
 
+            webviewElement.setUserAgentOverride(IPAD_USER_AGENT);
             device.classList.add('tablet');
 
             chrome.app.window.current().resizeTo(IPAD_WIDTH, IPAD_HEIGHT);
-        });
-
-        addressBarForm.addEventListener('submit', function () {
-            //TODO: validate urlInput.value
-            chrome.storage.local.set({url: urlInput.value});
-        });
-
-        refreshButton.addEventListener('click', function () {
-            webviewElement.reload();
-        });
-
-        chrome.storage.onChanged.addListener(function (changes, areaName) {
-            var url = changes.url;
-
-            if (url != null) {
-                if (url.newValue !== '') {
-                    webviewElement.setAttribute('src', urlInput.value);
-                } else {
-                    webviewElement.setAttribute('src', DEFAULT_URL);
-                }
-            }
-        });
-
-        document.addEventListener('keydown', function (event) {
-            if (event.keyCode === F5_KEY) {
-                webviewElement.reload();
-            } else if (event.keyCode == R_KEY && (event.ctrlKey || event.metaKey)) {
-                webviewElement.reload();
-            }
         });
     }
 };
