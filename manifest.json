@@ -3,7 +3,7 @@
 
     "name": "Salesforce1 Simulator",
     "description": "Launch Salesforce1 in a mobile simulator.",
-    "version": "0.1.0",
+    "version": "0.1.1",
 
     "app": {
         "background": {
