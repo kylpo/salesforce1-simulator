@@ -55,11 +55,10 @@ window.onload = function() {
             }
 
             // set alwaysOnTop state
-            if (storage.alwaysOnTop != null && storage.alwaysOnTop === true) {
-                alwaysOnTopButton.classList.add('is-active');
-                chrome.app.window.current().setAlwaysOnTop(true);
+            if (storage.alwaysOnTop != null && storage.alwaysOnTop === false) {
+                alwaysOnTopButton.classList.remove('is-active');
+                chrome.app.window.current().setAlwaysOnTop(false);
             }
-
         });
     }
 
@@ -70,14 +69,14 @@ window.onload = function() {
             var alwaysOnTop = changes.alwaysOnTop;
 
             if (url != null) {
-                if (url.newValue !== '') {
+                if (url.newValue != null && url.newValue !== '') {
                     webviewElement.setAttribute('src', urlInput.value);
                 } else {
                     webviewElement.setAttribute('src', DEFAULT_URL);
                 }
             }
 
-            if (alwaysOnTop != null) {
+            if (alwaysOnTop != null && alwaysOnTop.newValue != null) {
                 chrome.app.window.current().setAlwaysOnTop(alwaysOnTop.newValue);
             }
         });
