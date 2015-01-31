@@ -62,6 +62,10 @@ webview {
     color: #2A94D6;
 }
 
+.option--top {
+    padding: 20px 10px;
+}
+
 #iphone-5s-button {
     font-size: 20px;
 }
@@ -103,9 +107,7 @@ webview {
     border-radius: 50%;
 }
 
-#refresh-button {
-    padding: 20px 10px;
-}
+
 
 .speaker {
     position: absolute;
@@ -136,7 +138,7 @@ webview {
     color: white;
     font-size: 14px;
     padding: 2px;
-    width: calc(100% - 96px);
+    width: calc(100% - 104px);
     margin: 20px 0;
     text-align: center;
 }

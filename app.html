@@ -8,10 +8,10 @@
 
 <div class="wrapper">
     <div id="titlebar" class="fade-in">
-        <div id="on-top-button" class="option icon-coverflow is-active"></div>
+        <div id="on-top-button" class="option icon-coverflow is-active" title="Always on top"></div>
         <div class="right">
-            <div id="minimize-window-button" class="option icon-minus"></div>
-            <div id="close-window-button" class="option icon-cancel-1"></div>
+            <div id="minimize-window-button" class="option icon-minus" title="Minimize"></div>
+            <div id="close-window-button" class="option icon-cancel-1" title="Close"></div>
         </div>
     </div>
 
@@ -20,16 +20,17 @@
         <div class="speaker"></div>
         <div class="screen">
             <form id="address-bar" class="options top fade-in">
-                <div id="refresh-button" class="option icon-arrows-ccw"></div>
-                <input id="url-input" type="url" value="" target="_blank"/>
+                <div id="back-button" class="option option--top icon-left" title="Back"></div>
+                <input id="url-input" type="url" value="" target="_blank" title="URL Override"/>
+                <div id="refresh-button" class="option option--top icon-arrows-ccw" title="Refresh"></div>
             </form>
             <webview></webview>
             <div id="options" class="options bottom fade-in">
                 <div class="options-container">
-                    <div id="iphone-5s-button" class="option icon-mobile is-active"></div>
-                    <div id="iphone-6-button" class="option icon-mobile"></div>
-                    <div id="iphone-6-plus-button" class="option icon-mobile"></div>
-                    <div id="ipad-button" class="option icon-tablet"></div>
+                    <div id="iphone-5s-button" class="option icon-mobile is-active" title="iphone 5s"></div>
+                    <div id="iphone-6-button" class="option icon-mobile" title="iphone 6"></div>
+                    <div id="iphone-6-plus-button" class="option icon-mobile" title="iphone 6+"></div>
+                    <div id="ipad-button" class="option icon-tablet" title="ipad"></div>
                 </div>
             </div>
         </div>

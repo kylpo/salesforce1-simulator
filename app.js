@@ -28,6 +28,7 @@ window.onload = function() {
     var closeButton = document.getElementById('close-window-button');
 
     var addressBarForm = document.getElementById('address-bar');
+    var backButton = document.getElementById('back-button');
     var urlInput = document.getElementById('url-input');
     var refreshButton = document.getElementById('refresh-button');
 
@@ -52,6 +53,7 @@ window.onload = function() {
                 urlInput.value = storage.url;
             } else {
                 webviewElement.setAttribute('src', DEFAULT_URL);
+                //urlInput.value = DEFAULT_URL;
             }
 
             // set alwaysOnTop state
@@ -110,6 +112,10 @@ window.onload = function() {
 
         closeButton.addEventListener('click', function () {
             chrome.app.window.current().close();
+        });
+
+        backButton.addEventListener('click', function () {
+            webviewElement.back();
         });
 
         refreshButton.addEventListener('click', function () {
