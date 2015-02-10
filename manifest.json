@@ -18,8 +18,8 @@
     ],
 
     "icons": {
-        "16": "salesforce1.png",
-        "48": "salesforce1.png",
-        "128": "salesforce1.png"
+        "16": "assets/images/salesforce1.png",
+        "48": "assets/images/salesforce1.png",
+        "128": "assets/images/salesforce1.png"
     }
 }
